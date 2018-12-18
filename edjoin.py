@@ -51,7 +51,7 @@ def get_search_results():
     return search_results
 
 def _write_search_results(search_results):
-    with io.open('edjoin_last_search.json', 'w', encoding = 'utf-8') as file:
+    with io.open('./edjoin_last_search.json', 'w', encoding = 'utf-8') as file:
         if len(search_results) > 0:
             file.write(json.dumps(search_results, ensure_ascii = False))
         else:
@@ -83,14 +83,14 @@ def format_search_results(search_results):
     return search
 
 def _write_keywords(keywords):
-    with io.open('edjoin_keywords.txt', 'w', encoding = 'utf-8') as file:
+    with io.open('./edjoin_keywords.txt', 'w', encoding = 'utf-8') as file:
         for word in keywords:
             file.write(unicode(word + ','))
 
 def get_keywords():
     keywords = []
 
-    with io.open('edjoin_keywords.txt', 'r') as file:
+    with io.open('./edjoin_keywords.txt', 'r') as file:
         lines = file.readlines()
         for line in lines:
             words = line.split(',')
@@ -135,14 +135,14 @@ def keywords_string():
         return 'Keywords list is empty. ' + SAD_EMOJI
 
 def _write_blacklist(blacklist):
-    with io.open('edjoin_blacklist.txt', 'w', encoding = 'utf-8') as file:
+    with io.open('./edjoin_blacklist.txt', 'w', encoding = 'utf-8') as file:
         for word in blacklist:
             file.write(unicode(word + ','))
 
 def get_blacklist():
     blacklist = []
 
-    with io.open('edjoin_blacklist.txt', 'r') as file:
+    with io.open('./edjoin_blacklist.txt', 'r') as file:
         lines = file.readlines()
         for line in lines:
             words = line.split(',')
@@ -187,11 +187,11 @@ def blacklist_string():
         return 'Blacklist is empty.'
 
 def _get_last_search_json():
-    json_size = os.path.getsize('edjoin_last_search.json')
+    json_size = os.path.getsize('./edjoin_last_search.json')
 
     # Empty .json file is only 2 bytes
     if (json_size > 2):
-        with io.open('edjoin_last_search.json', 'r', encoding = 'utf-8') as file:
+        with io.open('./edjoin_last_search.json', 'r', encoding = 'utf-8') as file:
             last_search = json.load(file)
     else:
         last_search = None
