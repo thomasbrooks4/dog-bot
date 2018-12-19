@@ -68,16 +68,16 @@ def message_response(body):
             sms_body = 'Set blacklist back to default.\n\nBlacklist:\n' + str(blacklist)
     elif 'commands' in body_lower:
         sms_body = 'Commands:\n'
-        sms_body += '\n"search"    -    Run search with current keywords/blacklist'
-        sms_body += '\n"last search"    -    Return last search ran\n'
-        sms_body += '\n"get keywords"    -    Return list of current keywords for search'
-        sms_body += '\n"add keyword <keyword>"    -    Adds keyword to list of current keywords'
-        sms_body += '\n"remove keyword <keyword>"    -    Removes keyword from list of current keywords'
-        sms_body += '\n"default keywords"    -    Sets current keywords to default set of keywords\n'
-        sms_body += '\n"get blacklist"    -    Return list of words blacklisted from job title or district name'
-        sms_body += '\n"add blacklist <word>"    -    Adds word to current blacklist'
-        sms_body += '\n"remove blacklist <word>"    -    Removes word from blacklist'
-        sms_body += '\n"default blacklist"    -    Sets current blacklist to default blacklist'
+        sms_body += '\n"search"'
+        sms_body += '\n"last search"\n'
+        sms_body += '\n"get keywords"'
+        sms_body += '\n"add keyword <keyword>"'
+        sms_body += '\n"remove keyword <keyword>"'
+        sms_body += '\n"default keywords"\n'
+        sms_body += '\n"get blacklist"'
+        sms_body += '\n"add blacklist <word>"'
+        sms_body += '\n"remove blacklist <word>"'
+        sms_body += '\n"default blacklist"'
     else:
         sms_body = 'I\'m sorry. I could not recognize that command. Text "commands" to list some examples.'
 
